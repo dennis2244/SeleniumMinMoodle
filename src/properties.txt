@@ -1,0 +1,2 @@
+username=$LDAPLOGIN
+password=$LDAPPASSWORD
