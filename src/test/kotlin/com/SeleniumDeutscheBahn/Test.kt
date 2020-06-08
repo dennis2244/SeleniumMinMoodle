@@ -2,10 +2,11 @@ package com.SeleniumDeutscheBahn
 
 import org.testng.annotations.Test
 
-class Test {
+class Test : Base(){
 
     @Test
     fun getStarted() {
-        println("Hallo")
+        test = extent!!.createTest("Testname")
+
     }
 }
