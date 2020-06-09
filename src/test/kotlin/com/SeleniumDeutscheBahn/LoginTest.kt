@@ -12,7 +12,7 @@ class LoginTest : Base() {
     fun loginTest(){
        var loginPage: LoginPage = LoginPage(driver!!)
         PageFactory.initElements(driver!!, loginPage)
-        loginPage.login("baw9299", "Bellomuemmel2244")
+        loginPage.login("", "")
 
         Assert.assertTrue(loginPage.isUserLoggedIn())
     }
