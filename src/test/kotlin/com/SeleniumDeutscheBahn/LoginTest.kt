@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory
 import org.testng.Assert
 import org.testng.annotations.Test
 
-class LoginTest : Base() {
+open class LoginTest : Base() {
 
     @Test
     fun loginTest(){
@@ -15,6 +15,7 @@ class LoginTest : Base() {
         loginPage.login("", "")
 
         Assert.assertTrue(loginPage.isUserLoggedIn())
+        Assert.assertEquals(loginPage.meineKurse!!.text,("Meine Kurse"))
     }
 
     @Test
