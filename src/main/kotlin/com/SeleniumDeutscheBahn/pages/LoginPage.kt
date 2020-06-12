@@ -17,7 +17,7 @@ class LoginPage (driver:WebDriver) {
     @FindBy(id="loginbtn")
     val loginButton: WebElement? = null
 
-    @FindBy(id="instance-25494-header")
+    @FindBy(xpath = "(//*[starts-with(@id,'instance-') and contains(@class, 'card-title d-inline')])[3]")
     val meineKurse: WebElement? = null
 
     fun login(user: String, pw: String){
