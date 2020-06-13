@@ -1,5 +1,6 @@
 package com.SeleniumDeutscheBahn
 
+import com.SeleniumDeutscheBahn.pages.LoginPage
 import com.aventstack.extentreports.ExtentReports
 import com.aventstack.extentreports.ExtentTest
 import com.aventstack.extentreports.reporter.BasicFileReporter
@@ -8,6 +9,7 @@ import com.aventstack.extentreports.reporter.configuration.ExtentHtmlReporterCon
 import com.aventstack.extentreports.reporter.configuration.Theme
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
+import org.testng.Assert
 import org.testng.annotations.AfterClass
 import org.testng.annotations.AfterTest
 import org.testng.annotations.BeforeClass
@@ -26,7 +28,7 @@ open class Base {
     private val pathToReportFolder: String = ".\\src\\test\\resources\\testreports\\"
 
     @BeforeClass
-    fun setup(){
+    fun setupAndLogin(){
         htmlReporter = ExtentHtmlReporter(pathToReportFolder+"testreport.html")
         htmlReporter!!.config().documentTitle = "Report"
         htmlReporter!!.config().reportName = "Test Report"
@@ -42,7 +44,13 @@ open class Base {
         driver!!.get(url)
         driver!!.manage().window().maximize()
 
+        //Anmelden wird nun gleich hier gemacht, damit wir dies nicht immer in der eigentlichen Testklassen machen müssen
+        var loginPage = LoginPage(driver!!)
+        loginPage.login("", "")
+        Assert.assertTrue(loginPage.isUserLoggedIn())
+        Assert.assertEquals(loginPage.meineKurse!!.text,("Meine Kurse"))
     }
+
     @AfterClass
     fun close(){
         extent!!.flush()

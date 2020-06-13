@@ -3,10 +3,16 @@ package com.SeleniumDeutscheBahn.pages
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
-import org.openqa.selenium.support.How
+import org.openqa.selenium.support.PageFactory
 
 
 class LoginPage (driver:WebDriver) {
+    var webDriver: WebDriver? = null
+
+    init {
+        this.webDriver = driver
+        PageFactory.initElements(driver!!, this)
+    }
 
     @FindBy(id="username")
     val username: WebElement? = null
@@ -17,7 +23,8 @@ class LoginPage (driver:WebDriver) {
     @FindBy(id="loginbtn")
     val loginButton: WebElement? = null
 
-    @FindBy(xpath = "(//*[starts-with(@id,'instance-') and contains(@class, 'card-title d-inline')])[3]")
+    //@FindBy(xpath = "(//*[starts-with(@id,'instance-') and contains(@class, 'card-title d-inline')])[3]")
+    @FindBy(id="instance-25494-header")
     val meineKurse: WebElement? = null
 
     fun login(user: String, pw: String){
