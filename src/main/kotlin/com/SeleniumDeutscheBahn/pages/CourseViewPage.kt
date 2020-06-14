@@ -1,8 +1,12 @@
 package com.SeleniumDeutscheBahn.pages
 
+import net.bytebuddy.asm.Advice
+import org.openqa.selenium.By
+import org.openqa.selenium.Keys
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
+import org.openqa.selenium.support.How
 import org.openqa.selenium.support.PageFactory
 import java.util.concurrent.TimeUnit
 
@@ -35,15 +39,25 @@ class CourseViewPage(driver:WebDriver) {
     @FindBy(id="user-notifications")
     val newAnnouncementCreationText: WebElement? = null
 
+    @FindBy(xpath = "(//span[contains(@class,'section-modchooser-text') and contains(text(), 'Aktivität oder Material anlegen')])[2]")
+    //*[@id="yui_3_17_2_1_1592160051238_1031"]
+    val createActivityOrMaterialLink: WebElement? = null
+
+
     //Wechselt den Bearbeitungsmodus
     fun switchEditMode(mode: String){
 
-        /*
+
         when (mode) {
-               active -> stell sicher, dass der Bearbeitungsmodus aktiviert ist
-               disabled -> stell sicher, dass der Bearbeitungsmodus deaktiviert ist
+               "active" -> if(switchEditButton!!.text.equals("Bearbeiten einschalten")){
+                   switchEditButton.click()
+               }
+               "disabled" -> if(switchEditButton!!.text.equals("Bearbeiten ausschalten")) {
+                   switchEditButton.click()
+               }
+
         }
-         */
+
 
     }
 
@@ -69,5 +83,10 @@ class CourseViewPage(driver:WebDriver) {
         val actualText: String = newAnnouncementCreationText!!.text
         return actualText.contains(creationText)
     }
+
+    fun createMaterialOrActivity(){
+
+    }
+
 
 }
