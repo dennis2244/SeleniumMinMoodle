@@ -43,6 +43,15 @@ class CourseViewPage(driver:WebDriver) {
     //*[@id="yui_3_17_2_1_1592160051238_1031"]
     val createActivityOrMaterialLink: WebElement? = null
 
+    @FindBy(xpath = "(//*[starts-with(@id,'moodle-dialogue-') and contains(@class, 'moodle-dialogue-hd')])")
+    val menuHeader: WebElement? = null
+
+    @FindBy(id = "item_assign")
+    val taskField: WebElement? = null
+
+    //@FindBy(xpath = "(//*[contains(@name,'submitbuttonn') and contains(@value, 'Hinzufügen')])")
+    //val menuSubmitButton: WebElement? = null
+
 
     //Wechselt den Bearbeitungsmodus
     fun switchEditMode(mode: String){
@@ -85,7 +94,17 @@ class CourseViewPage(driver:WebDriver) {
     }
 
     fun createMaterialOrActivity(){
+        createActivityOrMaterialLink!!.click()
+        Thread.sleep(10000)
 
+    }
+
+    fun selectAufgabe(){
+        taskField!!.click()
+    }
+
+    fun submitChoices(){
+        submitButton!!.click()
     }
 
 
