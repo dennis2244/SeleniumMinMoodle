@@ -6,7 +6,7 @@ import com.aventstack.extentreports.Status
 import org.testng.Assert
 import org.testng.annotations.Test
 
-class CreateAnnouncementTest : Base() {
+open class CreateAnnouncementTest : Base() {
 
     @Test
     fun createNewAnnouncementTest(){
@@ -19,7 +19,7 @@ class CreateAnnouncementTest : Base() {
 
         test!!.log(Status.INFO, "Creating a new announcement")
         var courseViewPage = CourseViewPage(driver!!)
-        courseViewPage.createNewAnnouncement("Testautomatisierung", "Das hier ist die Nachricht")
+        courseViewPage.createNewAnnouncement("Testautomatisierung", "Das hier ist die Nachricht.")
 
         when (courseViewPage.verifyNewAnnouncement()) {
             true -> test!!.log(Status.PASS, "Announcement was created correctly!")
