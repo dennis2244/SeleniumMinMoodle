@@ -35,12 +35,28 @@ class CreateTaskTest : LoginAndNavigateToCourseTest() {
         var taskName: String = "Testaufgabe Nummer 1"
         var taskDescription: String = "Beispieltask zu Selenium Webdriver"
         var dueDate: String = "12"
+        var dueMonth: String = "7"
+        var gradindDueDay: String = "25"
 
         createTaskPage.enterName(taskName)
         //Assert.assertEquals(createTaskPage.taskNameInputField!!.text,taskName)
         createTaskPage.enterDescription(taskDescription)
         //Assert.assertEquals(createTaskPage.taskDescriptionInputField!!.text,taskDescription)
-        //createTaskPage.setDueDate(dueDate)
+
+        createTaskPage.setDueDate(dueDate)
+        createTaskPage.setDueMonth(dueMonth)
+        createTaskPage.setGradingDay(gradindDueDay)
+
+        createTaskPage.hitSubmit()
+
+        Assert.assertTrue(courseViewPage.testAufgabe1!!.isDisplayed)
+        courseViewPage!!.testAufgabe1!!.click()
+
+
+
+
+
+
 
 
 

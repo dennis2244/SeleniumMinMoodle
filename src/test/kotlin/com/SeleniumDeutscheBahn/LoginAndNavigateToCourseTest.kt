@@ -5,11 +5,12 @@ import com.SeleniumDeutscheBahn.pages.LandingPage
 import com.SeleniumDeutscheBahn.pages.LoginPage
 import org.openqa.selenium.support.PageFactory
 import org.testng.Assert
+import org.testng.annotations.BeforeClass
 import org.testng.annotations.Test
 
 open class LoginAndNavigateToCourseTest : Base() {
 
-    @Test
+    @BeforeClass
     fun navigateToCourse(){
         var landingPage: LandingPage = LandingPage(driver!!)
         landingPage.navigateToCourse()

@@ -18,7 +18,7 @@ class CourseViewPage(driver:WebDriver) {
         PageFactory.initElements(driver!!, this)
     }
 
-    @FindBy(xpath="//*[contains(@id, 'single_button5ee')]")
+    @FindBy(xpath="//*[contains(@id, 'single_button')]")
     val switchEditButton: WebElement? = null
 
     @FindBy(className="instancename")
@@ -48,6 +48,9 @@ class CourseViewPage(driver:WebDriver) {
 
     @FindBy(id = "item_assign")
     val taskField: WebElement? = null
+
+    @FindBy(xpath = "(//span[contains(@class,'instancename') and contains(text(), 'Testaufgabe Nummer 1')])")
+    val testAufgabe1: WebElement? = null
 
     //@FindBy(xpath = "(//*[contains(@name,'submitbuttonn') and contains(@value, 'Hinzufügen')])")
     //val menuSubmitButton: WebElement? = null
