@@ -6,12 +6,11 @@ import org.openqa.selenium.support.PageFactory
 import org.testng.Assert
 import org.testng.annotations.Test
 
-class CreateTaskTest : LoginAndNavigateToCourseTest() {
+class CreateTaskTest : Base() {
 
     @Test
     fun createTask(){
         var courseViewPage: CourseViewPage = CourseViewPage(driver!!)
-        PageFactory.initElements(driver!!, CourseViewPage(driver!!))
 
         Assert.assertTrue(courseViewPage.courseViewPageIsDisplayed())
 
@@ -39,10 +38,7 @@ class CreateTaskTest : LoginAndNavigateToCourseTest() {
         var gradindDueDay: String = "25"
 
         createTaskPage.enterName(taskName)
-        //Assert.assertEquals(createTaskPage.taskNameInputField!!.text,taskName)
         createTaskPage.enterDescription(taskDescription)
-        //Assert.assertEquals(createTaskPage.taskDescriptionInputField!!.text,taskDescription)
-
         createTaskPage.setDueDate(dueDate)
         createTaskPage.setDueMonth(dueMonth)
         createTaskPage.setGradingDay(gradindDueDay)
@@ -50,16 +46,13 @@ class CreateTaskTest : LoginAndNavigateToCourseTest() {
         createTaskPage.hitSubmit()
 
         Assert.assertTrue(courseViewPage.testAufgabe1!!.isDisplayed)
-        courseViewPage!!.testAufgabe1!!.click()
 
 
+    }
 
-
-
-
-
-
-
+    fun deleteTask(){
+        var courseViewPage: CourseViewPage = CourseViewPage(driver!!)
+        Assert.assertTrue(courseViewPage.testAufgabe1!!.isDisplayed)
 
     }
 }

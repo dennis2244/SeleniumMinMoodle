@@ -13,8 +13,6 @@ open class CreateAnnouncementTest : Base() {
         test = extent!!.createTest("Create a new announcement")
         test!!.log(Status.INFO, "Login and navigate to course view")
 
-        var landingPage = LandingPage(driver!!)
-        landingPage.navigateToCourse()
         test!!.log(Status.INFO, "Course view should displayed")
 
         test!!.log(Status.INFO, "Creating a new announcement")

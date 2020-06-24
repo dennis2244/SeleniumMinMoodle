@@ -5,14 +5,12 @@ import org.openqa.selenium.support.PageFactory
 import org.testng.Assert
 import org.testng.annotations.Test
 
-class EnableEditCourseViewPageTest : LoginAndNavigateToCourseTest() {
+class EnableEditCourseViewPageTest : Base() {
 
     @Test
     fun setEditModeActive(){
 
         var courseViewPage: CourseViewPage = CourseViewPage(driver!!)
-
-        PageFactory.initElements(driver!!, CourseViewPage(driver!!))
 
         Assert.assertTrue(courseViewPage.switchEditButton!!.isDisplayed)
         Assert.assertEquals(courseViewPage.switchEditButton!!.text,"Bearbeiten einschalten")
@@ -27,8 +25,6 @@ class EnableEditCourseViewPageTest : LoginAndNavigateToCourseTest() {
     fun setEditModeDisabled(){
 
         var courseViewPage: CourseViewPage = CourseViewPage(driver!!)
-
-        PageFactory.initElements(driver!!, CourseViewPage(driver!!))
 
         courseViewPage.switchEditMode("disabled")
 
