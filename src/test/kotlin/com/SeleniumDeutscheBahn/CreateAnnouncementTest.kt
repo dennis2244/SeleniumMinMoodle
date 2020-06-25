@@ -1,5 +1,6 @@
 package com.SeleniumDeutscheBahn
 
+import com.SeleniumDeutscheBahn.data.TestData
 import com.SeleniumDeutscheBahn.pages.CourseViewPage
 import com.SeleniumDeutscheBahn.pages.LandingPage
 import com.aventstack.extentreports.Status
@@ -17,7 +18,7 @@ open class CreateAnnouncementTest : Base() {
 
         test!!.log(Status.INFO, "Creating a new announcement")
         var courseViewPage = CourseViewPage(driver!!)
-        courseViewPage.createNewAnnouncement("Testautomatisierung", "Das hier ist die Nachricht.")
+        courseViewPage.createNewAnnouncement(TestData.anncouncementSubject, TestData.announcementMessage)
 
         when (courseViewPage.verifyNewAnnouncement()) {
             true -> test!!.log(Status.PASS, "Announcement was created correctly!")

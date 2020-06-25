@@ -1,5 +1,6 @@
 package com.SeleniumDeutscheBahn
 
+import com.SeleniumDeutscheBahn.data.TestData
 import com.SeleniumDeutscheBahn.pages.CourseViewPage
 import org.openqa.selenium.support.PageFactory
 import org.testng.Assert
@@ -13,11 +14,11 @@ class EnableEditCourseViewPageTest : Base() {
         var courseViewPage: CourseViewPage = CourseViewPage(driver!!)
 
         Assert.assertTrue(courseViewPage.switchEditButton!!.isDisplayed)
-        Assert.assertEquals(courseViewPage.switchEditButton!!.text,"Bearbeiten einschalten")
+        Assert.assertEquals(courseViewPage.switchEditButton!!.text, TestData.bearbeitenEinschalten)
 
         courseViewPage.switchEditMode("active")
 
-        Assert.assertEquals(courseViewPage.switchEditButton!!.text,"Bearbeiten ausschalten")
+        Assert.assertEquals(courseViewPage.switchEditButton!!.text,TestData.bearbeitenAusschalten)
         Assert.assertTrue(courseViewPage.switchEditButton!!.isDisplayed)
     }
 
@@ -29,7 +30,7 @@ class EnableEditCourseViewPageTest : Base() {
         courseViewPage.switchEditMode("disabled")
 
         Assert.assertTrue(courseViewPage.switchEditButton!!.isDisplayed)
-        Assert.assertEquals(courseViewPage.switchEditButton!!.text,"Bearbeiten einschalten")
+        Assert.assertEquals(courseViewPage.switchEditButton!!.text,TestData.bearbeitenEinschalten)
 
     }
 }

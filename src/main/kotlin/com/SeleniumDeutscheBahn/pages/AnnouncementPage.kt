@@ -1,5 +1,6 @@
 package com.SeleniumDeutscheBahn.pages
 
+import com.SeleniumDeutscheBahn.data.TestData
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
@@ -35,6 +36,9 @@ class AnnouncementPage (driver: WebDriver) {
     @FindBy(id="id_submitbutton")
     val submitChanges: WebElement? = null
 
+    @FindBy(id="user-notifications")
+    val userNotification: WebElement? = null
+
 
     //Löscht die übergebene Ankündigung
     fun deleteAnnouncement(annoucement: String){
@@ -54,6 +58,7 @@ class AnnouncementPage (driver: WebDriver) {
 
         editButton!!.click()
         subjectTextfield!!.sendKeys(subject!!)
+        messageTextfield!!.clear()
         messageTextfield!!.sendKeys(message!!)
         submitChanges!!.click()
     }
@@ -64,5 +69,10 @@ class AnnouncementPage (driver: WebDriver) {
             "($searchQuery, '$announcement')])"))
 
         tableElement!!.click()
+    }
+
+    fun verifyEditedAnnouncement(): Boolean{
+       val messageText: String = userNotification!!.text
+        return messageText.contains(TestData.announcementEditText1 + TestData.announcementEditText2)
     }
 }

@@ -1,5 +1,6 @@
 package com.SeleniumDeutscheBahn
 
+import com.SeleniumDeutscheBahn.data.TestData
 import com.SeleniumDeutscheBahn.pages.CourseViewPage
 import com.SeleniumDeutscheBahn.pages.LandingPage
 import com.SeleniumDeutscheBahn.pages.LoginPage
@@ -26,13 +27,10 @@ open class Base {
     var extent: ExtentReports? = null
     var test: ExtentTest? = null
 
-    private val url: String = "https://lernen.min.uni-hamburg.de/login/index.php"
-    private val pathToDriver: String = ".\\src\\test\\resources\\drivers\\geckodriver.exe"
-    private val pathToReportFolder: String = ".\\src\\test\\resources\\testreports\\"
 
     @BeforeClass
     fun setupLoginAndNavigateToCourse(){
-        htmlReporter = ExtentHtmlReporter(pathToReportFolder+"testreport.html")
+        htmlReporter = ExtentHtmlReporter(TestData.pathToReportFolder+"testreport.html")
         htmlReporter!!.config().documentTitle = "Report"
         htmlReporter!!.config().reportName = "Test Report"
         htmlReporter!!.config().theme = Theme.DARK
@@ -40,18 +38,18 @@ open class Base {
         extent = ExtentReports()
         extent!!.attachReporter(htmlReporter)
 
-        System.setProperty("webdriver.gecko.driver", pathToDriver)
+        System.setProperty("webdriver.gecko.driver", TestData.pathToDriver)
         driver = FirefoxDriver()
         driver!!.manage().deleteAllCookies()
         driver!!.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)
-        driver!!.get(url)
+        driver!!.get(TestData.url)
         driver!!.manage().window().maximize()
 
         //Anmelden wird nun gleich hier gemacht, damit wir dies nicht immer in der eigentlichen Testklassen machen müssen
         var loginPage = LoginPage(driver!!)
-        loginPage.login("", "")
+        loginPage.login(TestData.username, TestData.password)
         Assert.assertTrue(loginPage.isUserLoggedIn())
-        Assert.assertEquals(loginPage.meineKurse!!.text,("Meine Kurse"))
+        Assert.assertEquals(loginPage.meineKurse!!.text,(TestData.meineKurse))
 
         var landingPage: LandingPage = LandingPage(driver!!)
         landingPage.navigateToCourse()

@@ -1,5 +1,6 @@
 package com.SeleniumDeutscheBahn
 
+import com.SeleniumDeutscheBahn.data.TestData
 import com.SeleniumDeutscheBahn.pages.CourseViewPage
 import com.SeleniumDeutscheBahn.pages.CreateTaskPage
 import org.openqa.selenium.support.PageFactory
@@ -31,17 +32,12 @@ class CreateTaskTest : Base() {
         var createTaskPage: CreateTaskPage = CreateTaskPage(driver!!)
         Assert.assertTrue(createTaskPage.pageHeader!!.isDisplayed)
 
-        var taskName: String = "Testaufgabe Nummer 1"
-        var taskDescription: String = "Beispieltask zu Selenium Webdriver"
-        var dueDate: String = "12"
-        var dueMonth: String = "7"
-        var gradindDueDay: String = "25"
 
-        createTaskPage.enterName(taskName)
-        createTaskPage.enterDescription(taskDescription)
-        createTaskPage.setDueDate(dueDate)
-        createTaskPage.setDueMonth(dueMonth)
-        createTaskPage.setGradingDay(gradindDueDay)
+        createTaskPage.enterName(TestData.taskName)
+        createTaskPage.enterDescription(TestData.taskDescription)
+        createTaskPage.setDueDate(TestData.dueDate)
+        createTaskPage.setDueMonth(TestData.dueMonth)
+        createTaskPage.setGradingDay(TestData.gradindDueDay)
 
         createTaskPage.hitSubmit()
 

@@ -1,5 +1,6 @@
 package com.SeleniumDeutscheBahn.pages
 
+import com.SeleniumDeutscheBahn.data.TestData
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
@@ -57,10 +58,10 @@ class CourseViewPage(driver:WebDriver) {
 
 
         when (mode) {
-               "active" -> if(switchEditButton!!.text.equals("Bearbeiten einschalten")){
+               "active" -> if(switchEditButton!!.text.equals(TestData.bearbeitenEinschalten)){
                    switchEditButton.click()
                }
-               "disabled" -> if(switchEditButton!!.text.equals("Bearbeiten ausschalten")) {
+               "disabled" -> if(switchEditButton!!.text.equals(TestData.bearbeitenAusschalten)) {
                    switchEditButton.click()
                }
 
@@ -87,9 +88,8 @@ class CourseViewPage(driver:WebDriver) {
 
     //Verify new announcement saved correctly
     fun verifyNewAnnouncement(): Boolean{
-        val creationText: String = "Der Beitrag wurde erfolgreich eingefügt."
         val actualText: String = newAnnouncementCreationText!!.text
-        return actualText.contains(creationText)
+        return actualText.contains(TestData.creationText)
     }
 
     fun createMaterialOrActivity(){
