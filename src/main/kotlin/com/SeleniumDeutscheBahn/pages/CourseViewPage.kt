@@ -46,6 +46,9 @@ class CourseViewPage(driver:WebDriver) {
     @FindBy(id = "item_assign")
     val taskField: WebElement? = null
 
+    @FindBy(id = "item_resource")
+    val fileField: WebElement? = null
+
     @FindBy(xpath = "(//span[contains(@class,'instancename') and contains(text(), 'Testaufgabe Nummer 1')])")
     val testAufgabe1: WebElement? = null
 
@@ -100,6 +103,10 @@ class CourseViewPage(driver:WebDriver) {
 
     fun selectAufgabe(){
         taskField!!.click()
+    }
+
+    fun selectFileUpload(){
+        fileField!!.click()
     }
 
     fun submitChoices(){

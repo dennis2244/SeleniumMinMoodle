@@ -26,6 +26,10 @@ class TestData {
         const val dueMonth: String = "7"
         const val gradindDueDay: String = "25"
 
+        const val fileName: String = "Logo"
+        const val fileDescription: String = "Selenium Logo"
+        const val uploadFileUrl: String = "https://www.qytera.de/sites/default/files/styles/large/public/field/image/big-logo.png?itok=R5Fx3Cp4"
+
         //Setup Daten
         const val url: String = "https://lernen.min.uni-hamburg.de/login/index.php"
         const val pathToDriver: String = ".\\src\\test\\resources\\drivers\\geckodriver.exe"
