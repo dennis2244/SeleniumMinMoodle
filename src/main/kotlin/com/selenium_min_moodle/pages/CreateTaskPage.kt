@@ -1,4 +1,4 @@
-package com.SeleniumDeutscheBahn.pages
+package com.selenium_min_moodle.pages
 
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement

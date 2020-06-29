@@ -1,10 +1,8 @@
-package com.SeleniumDeutscheBahn
+package com.selenium_min_moodle
 
-import com.SeleniumDeutscheBahn.data.TestData
-import com.SeleniumDeutscheBahn.pages.CourseViewPage
-import com.SeleniumDeutscheBahn.pages.LandingPage
+import com.selenium_min_moodle.data.TestData
+import com.selenium_min_moodle.pages.CourseViewPage
 import com.aventstack.extentreports.Status
-import org.testng.Assert
 import org.testng.annotations.Test
 
 open class CreateAnnouncementTest : Base() {

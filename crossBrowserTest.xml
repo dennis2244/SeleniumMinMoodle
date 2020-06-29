@@ -3,7 +3,7 @@
     <test name = "Cross Bowser Test">
         <parameter name = "browser" value = "firefox"/>
         <classes>
-            <class name = "com.SeleniumDeutscheBahn.CrossBrowserTest"/>
+            <class name = "com.selenium_min_moodle.CrossBrowserTest"/>
         </classes>
     </test>
 </suite>

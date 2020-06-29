@@ -1,7 +1,7 @@
-package com.SeleniumDeutscheBahn
+package com.selenium_min_moodle
 
-import com.SeleniumDeutscheBahn.data.TestData
-import com.SeleniumDeutscheBahn.pages.AnnouncementPage
+import com.selenium_min_moodle.data.TestData
+import com.selenium_min_moodle.pages.AnnouncementPage
 import org.testng.annotations.Test
 
 class EditAnnouncementTest : CreateAnnouncementTest() {

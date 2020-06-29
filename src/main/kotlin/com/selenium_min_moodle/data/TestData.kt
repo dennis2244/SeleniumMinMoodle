@@ -1,4 +1,4 @@
-package com.SeleniumDeutscheBahn.data
+package com.selenium_min_moodle.data
 
 class TestData {
 

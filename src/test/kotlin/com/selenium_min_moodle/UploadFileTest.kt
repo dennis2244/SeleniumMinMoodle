@@ -1,10 +1,8 @@
-package com.SeleniumDeutscheBahn
+package com.selenium_min_moodle
 
-import com.SeleniumDeutscheBahn.data.TestData
-import com.SeleniumDeutscheBahn.pages.CourseViewPage
-import com.SeleniumDeutscheBahn.pages.CreateTaskPage
-import com.SeleniumDeutscheBahn.pages.UploadFilePage
-import org.openqa.selenium.support.ui.WebDriverWait
+import com.selenium_min_moodle.data.TestData
+import com.selenium_min_moodle.pages.CourseViewPage
+import com.selenium_min_moodle.pages.UploadFilePage
 import org.testng.Assert
 import org.testng.annotations.Test
 

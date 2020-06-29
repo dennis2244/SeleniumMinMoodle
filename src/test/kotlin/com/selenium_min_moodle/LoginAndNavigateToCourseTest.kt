@@ -1,12 +1,9 @@
-package com.SeleniumDeutscheBahn
+package com.selenium_min_moodle
 
-import com.SeleniumDeutscheBahn.pages.CourseViewPage
-import com.SeleniumDeutscheBahn.pages.LandingPage
-import com.SeleniumDeutscheBahn.pages.LoginPage
-import org.openqa.selenium.support.PageFactory
+import com.selenium_min_moodle.pages.CourseViewPage
+import com.selenium_min_moodle.pages.LandingPage
 import org.testng.Assert
 import org.testng.annotations.BeforeClass
-import org.testng.annotations.Test
 
 open class LoginAndNavigateToCourseTest : Base() {
 

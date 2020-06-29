@@ -1,8 +1,7 @@
-package com.SeleniumDeutscheBahn
+package com.selenium_min_moodle
 
-import com.SeleniumDeutscheBahn.data.TestData
-import com.SeleniumDeutscheBahn.pages.CourseViewPage
-import org.openqa.selenium.support.PageFactory
+import com.selenium_min_moodle.data.TestData
+import com.selenium_min_moodle.pages.CourseViewPage
 import org.testng.Assert
 import org.testng.annotations.Test
 

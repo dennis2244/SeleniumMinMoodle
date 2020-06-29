@@ -1,14 +1,12 @@
-package com.SeleniumDeutscheBahn
+package com.selenium_min_moodle
 
-import com.SeleniumDeutscheBahn.data.TestData
-import com.SeleniumDeutscheBahn.pages.CourseViewPage
-import com.SeleniumDeutscheBahn.pages.LandingPage
-import com.SeleniumDeutscheBahn.pages.LoginPage
+import com.selenium_min_moodle.data.TestData
+import com.selenium_min_moodle.pages.CourseViewPage
+import com.selenium_min_moodle.pages.LandingPage
+import com.selenium_min_moodle.pages.LoginPage
 import com.aventstack.extentreports.ExtentReports
 import com.aventstack.extentreports.ExtentTest
-import com.aventstack.extentreports.reporter.BasicFileReporter
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter
-import com.aventstack.extentreports.reporter.configuration.ExtentHtmlReporterConfiguration
 import com.aventstack.extentreports.reporter.configuration.Theme
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver

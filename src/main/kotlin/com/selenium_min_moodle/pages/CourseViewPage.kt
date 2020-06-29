@@ -1,6 +1,6 @@
-package com.SeleniumDeutscheBahn.pages
+package com.selenium_min_moodle.pages
 
-import com.SeleniumDeutscheBahn.data.TestData
+import com.selenium_min_moodle.data.TestData
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
