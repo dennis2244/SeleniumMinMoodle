@@ -14,10 +14,7 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.testng.Assert
-import org.testng.annotations.AfterClass
-import org.testng.annotations.AfterTest
-import org.testng.annotations.BeforeClass
-import org.testng.annotations.BeforeTest
+import org.testng.annotations.*
 import java.util.concurrent.TimeUnit
 
 open class Base {
@@ -38,8 +35,19 @@ open class Base {
         extent = ExtentReports()
         extent!!.attachReporter(htmlReporter)
 
-        System.setProperty("webdriver.gecko.driver", TestData.pathToDriver)
-        driver = FirefoxDriver()
+        when(TestData.browser) {
+            "chrome" ->
+            {
+                System.setProperty("webdriver.chrome.driver", TestData.pathToChromeDriver)
+                driver = ChromeDriver()
+            }
+             "firefox" ->
+             {
+                 System.setProperty("webdriver.gecko.driver", TestData.pathToFirefoxDriver)
+                 driver = FirefoxDriver()
+             }
+        }
+
         driver!!.manage().deleteAllCookies()
         driver!!.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)
         driver!!.get(TestData.url)

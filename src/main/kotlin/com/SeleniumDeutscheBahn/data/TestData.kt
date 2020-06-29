@@ -32,7 +32,9 @@ class TestData {
 
         //Setup Daten
         const val url: String = "https://lernen.min.uni-hamburg.de/login/index.php"
-        const val pathToDriver: String = ".\\src\\test\\resources\\drivers\\geckodriver.exe"
+        const val pathToFirefoxDriver: String = ".\\src\\test\\resources\\drivers\\geckodriver.exe"
+        const val pathToChromeDriver: String = ".\\src\\test\\resources\\drivers\\chromedriver.exe"
         const val pathToReportFolder: String = ".\\src\\test\\resources\\testreports\\"
+        const val browser: String = "firefox"
     }
 }
