@@ -22,10 +22,10 @@ open class Base {
     var extent: ExtentReports? = null
     var test: ExtentTest? = null
 
-
     @BeforeClass
     fun setupLoginAndNavigateToCourse(){
         htmlReporter = ExtentHtmlReporter(TestData.pathToReportFolder+"testreport.html")
+        htmlReporter!!.setAppendExisting(true)
         htmlReporter!!.config().documentTitle = "Report"
         htmlReporter!!.config().reportName = "Test Report"
         htmlReporter!!.config().theme = Theme.DARK
