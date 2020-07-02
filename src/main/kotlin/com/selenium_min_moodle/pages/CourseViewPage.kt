@@ -1,14 +1,18 @@
 package com.selenium_min_moodle.pages
 
 import com.selenium_min_moodle.data.TestData
+import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
 import org.openqa.selenium.support.PageFactory
+import org.openqa.selenium.support.ui.ExpectedConditions
+import org.openqa.selenium.support.ui.WebDriverWait
 import java.util.concurrent.TimeUnit
 
 class CourseViewPage(driver:WebDriver) {
     var webDriver: WebDriver? = null
+    private val searchQueryACtion: String = "//*[contains(text(), "
 
     init {
         this.webDriver = driver
@@ -51,6 +55,12 @@ class CourseViewPage(driver:WebDriver) {
 
     @FindBy(xpath = "(//span[contains(@class,'instancename') and contains(text(), 'Testaufgabe Nummer 1')])")
     val testAufgabe1: WebElement? = null
+
+    @FindBy(id = "action-menu-toggle-2")
+    val actionMenue: WebElement? = null
+
+    @FindBy(id = "action-menu-2-menu")
+    val actionElements: WebElement? = null
 
     //@FindBy(xpath = "(//*[contains(@name,'submitbuttonn') and contains(@value, 'Hinzufügen')])")
     //val menuSubmitButton: WebElement? = null
@@ -113,5 +123,13 @@ class CourseViewPage(driver:WebDriver) {
         submitButton!!.click()
     }
 
+    fun selectActionViaDropDown(action: String){
+        var wait = WebDriverWait(webDriver!!, 3)
+        wait.until(ExpectedConditions.elementToBeClickable(actionMenue))
+        actionMenue!!.click()
+
+        webDriver!!.findElement(By.xpath("$searchQueryACtion '$action')]")).click()
+
+        }
 
 }
