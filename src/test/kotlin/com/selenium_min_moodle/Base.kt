@@ -47,8 +47,8 @@ open class Base {
         }
 
         driver!!.manage().deleteAllCookies()
-        driver!!.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)
         driver!!.get(TestData.url)
+        driver!!.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)
         driver!!.manage().window().maximize()
 
         //Anmelden wird nun gleich hier gemacht, damit wir dies nicht immer in der eigentlichen Testklassen machen müssen
@@ -57,7 +57,7 @@ open class Base {
         Assert.assertTrue(loginPage.isUserLoggedIn())
         Assert.assertEquals(loginPage.meineKurse!!.text,(TestData.meineKurse))
 
-        var landingPage: LandingPage = LandingPage(driver!!)
+        var landingPage = LandingPage(driver!!)
         landingPage.navigateToCourse()
 
         var courseViewPage = CourseViewPage(driver!!)
