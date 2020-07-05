@@ -15,8 +15,9 @@ class ParallelTestExecution {
 
     var driver: WebDriver? = null
     var driver2: WebDriver? = null
+    var driver3: WebDriver? = null
 
-    @Test(threadPoolSize = 2)
+    @Test(threadPoolSize = 3)
     fun test1() {
         System.setProperty("webdriver.chrome.driver", TestData.pathToChromeDriver)
         driver = ChromeDriver()
@@ -66,5 +67,28 @@ class ParallelTestExecution {
 
         Assert.assertEquals(courseViewPage.switchEditButton!!.text,TestData.bearbeitenAusschalten)
         Assert.assertTrue(courseViewPage.switchEditButton!!.isDisplayed)
+    }
+
+    @Test
+    fun changeSystemLanguage(){
+        System.setProperty("webdriver.chrome.driver", TestData.pathToChromeDriver)
+        driver3 = ChromeDriver()
+        driver3!!.manage().deleteAllCookies()
+        driver3!!.get(TestData.url)
+        driver3!!.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)
+        driver3!!.manage().window().maximize()
+
+        var loginPage = LoginPage(driver3!!)
+        loginPage.login(TestData.username, TestData.password)
+        Assert.assertTrue(loginPage.isUserLoggedIn())
+        Assert.assertEquals(loginPage.meineKurse!!.text,(TestData.meineKurse))
+
+        val landingPage = LandingPage(driver3!!)
+        landingPage.navigateToCourse()
+        landingPage.switchLanguage(TestData.languageEnglish)
+        Assert.assertTrue(landingPage.verifyLanguage(TestData.languageEnglish))
+
+        landingPage.switchLanguage(TestData.languageDeutsch)
+        Assert.assertTrue(landingPage.verifyLanguage(TestData.languageDeutsch))
     }
 }
