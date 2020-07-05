@@ -5,8 +5,8 @@ class TestData {
     companion object {
         //@JvmStatic
         //Login Daten
-        const val username: String = ""
-        const val password: String = ""
+        const val username = ""
+        const val password = ""
 
         //Vergleichtexte auf der GUI
         const val meineKurse: String = "Meine Kurse"
@@ -17,6 +17,7 @@ class TestData {
         const val announcementEditText2: String = "wurde aktualisiert"
         const val languageDeutsch = "deutsch"
         const val languageEnglish = "englisch"
+        const val switchRole = "Gast"
 
         //Eingabedaten über die GUI
         const val anncouncementSubject: String = "Testautomatisierung"

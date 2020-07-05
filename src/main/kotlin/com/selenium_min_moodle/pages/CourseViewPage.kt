@@ -62,6 +62,12 @@ class CourseViewPage(driver:WebDriver) {
     @FindBy(id = "action-menu-2-menu")
     val actionElements: WebElement? = null
 
+    @FindBy(id = "action-menu-1-menubar")
+    val userMenue: WebElement? = null
+
+    @FindBy(id = "actionmenuaction-7")
+    val menueSwitchToRole: WebElement? = null
+
     //@FindBy(xpath = "(//*[contains(@name,'submitbuttonn') and contains(@value, 'Hinzufügen')])")
     //val menuSubmitButton: WebElement? = null
 
@@ -131,5 +137,14 @@ class CourseViewPage(driver:WebDriver) {
         webDriver!!.findElement(By.xpath("$searchQueryACtion '$action')]")).click()
 
         }
+
+    fun navigateToSwitchToRolePage(){
+        userMenue!!.click()
+        menueSwitchToRole!!.click()
+    }
+
+    fun resetRole(){
+        navigateToSwitchToRolePage()
+    }
 
 }
