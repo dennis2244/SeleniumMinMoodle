@@ -15,6 +15,8 @@ class TestData {
         const val creationText: String = "Der Beitrag wurde erfolgreich eingefügt."
         const val announcementEditText1: String = "Beitrag von"
         const val announcementEditText2: String = "wurde aktualisiert"
+        const val languageDeutsch = "deutsch"
+        const val languageEnglish = "englisch"
 
         //Eingabedaten über die GUI
         const val anncouncementSubject: String = "Testautomatisierung"
@@ -35,6 +37,6 @@ class TestData {
         const val pathToFirefoxDriver: String = ".\\src\\test\\resources\\drivers\\geckodriver.exe"
         const val pathToChromeDriver: String = ".\\src\\test\\resources\\drivers\\chromedriver.exe"
         const val pathToReportFolder: String = ".\\src\\test\\resources\\testreports\\"
-        const val browser: String = "firefox"
+        const val browser: String = "chrome"
     }
 }
