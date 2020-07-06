@@ -67,6 +67,6 @@ open class Base {
     @AfterClass
     fun close(){
         extent!!.flush()
-        //driver!!.close()
+        driver!!.close()
     }
 }

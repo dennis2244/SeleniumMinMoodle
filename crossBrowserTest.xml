@@ -12,11 +12,6 @@
             <class name = "com.selenium_min_moodle.CrossBrowserTest"/>
         </classes>
     </test>
-    <test name = "Create Announcement Test">
-        <classes>
-            <class name = "com.selenium_min_moodle.CreateAnnouncementTest"/>
-        </classes>
-    </test>
     <test name = "Edit Announcement Test">
         <classes>
             <class name = "com.selenium_min_moodle.EditAnnouncementTest"/>
@@ -35,6 +30,16 @@
     <test name = "File Upload Test">
         <classes>
             <class name = "com.selenium_min_moodle.UploadFileTest"/>
+        </classes>
+    </test>
+    <test name = "Language Test">
+        <classes>
+            <class name = "com.selenium_min_moodle.LanguageTest"/>
+        </classes>
+    </test>
+    <test name = "Role Test">
+        <classes>
+            <class name = "com.selenium_min_moodle.SwitchRoleTest"/>
         </classes>
     </test>
 </suite>

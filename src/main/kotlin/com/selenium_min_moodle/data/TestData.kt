@@ -8,6 +8,7 @@ class TestData {
         const val username = ""
         const val password = ""
 
+
         //Vergleichtexte auf der GUI
         const val meineKurse: String = "Meine Kurse"
         const val bearbeitenEinschalten: String = "Bearbeiten einschalten"
@@ -21,7 +22,8 @@ class TestData {
 
         //Eingabedaten über die GUI
         const val anncouncementSubject: String = "Testautomatisierung"
-        const val announcementMessage: String = "Das hier ist die Nachricht."
+        const val announcementMessage: String = "Neue Nachricht!"
+        const val announcementMessageEdit = "Nachricht bearbeitet!"
 
         const val taskName: String = "Testaufgabe Nummer 1"
         const val taskDescription: String = "Beispieltask zu Selenium Webdriver"

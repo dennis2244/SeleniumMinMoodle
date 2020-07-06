@@ -1,6 +1,7 @@
 package com.selenium_min_moodle
 
 import com.selenium_min_moodle.data.TestData
+import com.selenium_min_moodle.pages.AnnouncementPage
 import com.selenium_min_moodle.pages.CourseViewPage
 import com.selenium_min_moodle.pages.LandingPage
 import com.selenium_min_moodle.pages.LoginPage
@@ -8,6 +9,7 @@ import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.testng.Assert
+import org.testng.annotations.AfterTest
 import org.testng.annotations.BeforeTest
 import org.testng.annotations.Parameters
 import org.testng.annotations.Test
@@ -41,7 +43,7 @@ class CrossBrowserTest {
         Assert.assertTrue(loginPage.isUserLoggedIn())
         Assert.assertEquals(loginPage.meineKurse!!.text,(TestData.meineKurse))
 
-        var landingPage: LandingPage = LandingPage(driver!!)
+        var landingPage = LandingPage(driver!!)
         landingPage.navigateToCourse()
 
         var courseViewPage = CourseViewPage(driver!!)
@@ -50,10 +52,16 @@ class CrossBrowserTest {
     }
 
     @Test
-    fun createNewAnnouncementTest(){
+    fun createAnnouncementTest(){
         var courseViewPage = CourseViewPage(driver!!)
         courseViewPage.createNewAnnouncement(TestData.anncouncementSubject, TestData.announcementMessage)
+        courseViewPage.verifyNewAnnouncement()
 
-       courseViewPage.verifyNewAnnouncement()
     }
+
+    @AfterTest
+    fun quitBrowser(){
+        driver!!.quit()
+    }
+
 }

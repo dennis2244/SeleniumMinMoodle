@@ -9,7 +9,7 @@ class EditAnnouncementTest : CreateAnnouncementTest() {
     @Test
     fun editAnnouncementTest(){
         var announcement = AnnouncementPage(driver!!)
-        announcement.editAnnouncement(TestData.anncouncementSubject, " ", TestData.announcementMessage)
+        announcement.editAnnouncement(TestData.anncouncementSubject, " ", TestData.announcementMessageEdit)
         announcement.verifyEditedAnnouncement()
     }
 

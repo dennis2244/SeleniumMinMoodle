@@ -18,7 +18,7 @@ class ParallelTestExecution {
     var driver3: WebDriver? = null
 
     @Test(threadPoolSize = 3)
-    fun test1() {
+    fun createAnnouncement() {
         System.setProperty("webdriver.chrome.driver", TestData.pathToChromeDriver)
         driver = ChromeDriver()
         driver!!.manage().deleteAllCookies()
@@ -42,7 +42,7 @@ class ParallelTestExecution {
     }
 
     @Test
-    fun test2() {
+    fun switchEditMode() {
         System.setProperty("webdriver.chrome.driver", TestData.pathToChromeDriver)
         driver2 = ChromeDriver()
         driver2!!.manage().deleteAllCookies()
