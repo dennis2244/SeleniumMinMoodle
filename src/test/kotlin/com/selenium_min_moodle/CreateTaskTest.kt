@@ -35,7 +35,7 @@ class CreateTaskTest : Base() {
         courseViewPage.submitChoices()
 
 
-        var createTaskPage: CreateTaskPage = CreateTaskPage(driver!!)
+        var createTaskPage = CreateTaskPage(driver!!)
         Assert.assertTrue(createTaskPage.pageHeader!!.isDisplayed)
 
 
@@ -54,7 +54,7 @@ class CreateTaskTest : Base() {
     }
 
     fun deleteTask(){
-        var courseViewPage: CourseViewPage = CourseViewPage(driver!!)
+        var courseViewPage = CourseViewPage(driver!!)
         Assert.assertTrue(courseViewPage.testAufgabe1!!.isDisplayed)
 
     }

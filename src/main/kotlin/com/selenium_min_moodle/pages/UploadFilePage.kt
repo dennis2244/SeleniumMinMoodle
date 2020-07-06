@@ -1,5 +1,6 @@
 package com.selenium_min_moodle.pages
 
+import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
 import org.openqa.selenium.support.FindBy
@@ -26,11 +27,9 @@ class UploadFilePage(driver:WebDriver) {
     @FindBy(id = "id_introeditoreditable")
     var fileDescriptionInputField: WebElement? = null
 
-    @FindBy(xpath = "//*[@title='Datei hinzufügen']")
+    //@FindBy(xpath = "//*[@title='Datei hinzufügen']")
+    @FindBy(className = "dndupload-arrow")
     var addFileBtn: WebElement? = null
-
-    @FindBy(className = "fp-repo-name")
-    var selectURLDownloader: WebElement? = null
 
     @FindBy(id = "fileurl")
     var fileurlInputElement: WebElement? = null
@@ -52,23 +51,24 @@ class UploadFilePage(driver:WebDriver) {
     }
 
     fun enterDescription(description:String){
-        fileDescriptionInputField!!.sendKeys(description)
+       fileDescriptionInputField!!.sendKeys(description)
     }
 
     fun uploadFileByUrl(Url:String){
-        //addFileBtn!!.click()
-        Thread.sleep(7000)
-        //selectURLDownloader!!.click()
-        fileurlInputElement!!.sendKeys(Url)
-        downloadBtn!!.click()
-        imageWidget!!.click()
-        confirmSelectBtn!!.click()
+       addFileBtn!!.click()
+       var elements: WebElement = webDriver!!.findElement(By.partialLinkText("URL-Downloader"))
+       elements.click()
+
+       fileurlInputElement!!.sendKeys(Url)
+       downloadBtn!!.click()
+       imageWidget!!.click()
+       confirmSelectBtn!!.click()
     }
 
     fun hitSubmit(){
-        val wait = WebDriverWait(webDriver, 5)
-        submitbtn2 = wait.until(ExpectedConditions.elementToBeClickable(submitbtn2))
-        submitbtn2!!.click()
+       val wait = WebDriverWait(webDriver, 5)
+       submitbtn2 = wait.until(ExpectedConditions.elementToBeClickable(submitbtn2))
+       submitbtn2!!.click()
     }
 
 

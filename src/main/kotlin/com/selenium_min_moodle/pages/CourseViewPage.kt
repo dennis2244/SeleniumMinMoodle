@@ -130,7 +130,7 @@ class CourseViewPage(driver:WebDriver) {
     }
 
     fun selectActionViaDropDown(action: String){
-        var wait = WebDriverWait(webDriver!!, 3)
+        var wait = WebDriverWait(webDriver!!, 2)
         wait.until(ExpectedConditions.elementToBeClickable(actionMenue))
         actionMenue!!.click()
 
