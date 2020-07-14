@@ -14,28 +14,25 @@ import java.util.concurrent.TimeUnit
 class ParallelTestExecution {
 
     var driver: WebDriver? = null
-    var driver2: WebDriver? = null
-    var driver3: WebDriver? = null
 
-    @Test(threadPoolSize = 3)
+    @Test
     fun createAnnouncement() {
         System.setProperty("webdriver.chrome.driver", TestData.pathToChromeDriver)
-        driver = ChromeDriver()
-        driver!!.manage().deleteAllCookies()
-        driver!!.get(TestData.url)
-        driver!!.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)
-        driver!!.manage().window().maximize()
+        var driver = ChromeDriver()
+        driver.manage().deleteAllCookies()
+        driver.get(TestData.url)
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)
+        driver.manage().window().maximize()
 
-
-        var loginPage = LoginPage(driver!!)
+        var loginPage = LoginPage(driver)
         loginPage.login(TestData.username, TestData.password)
         Assert.assertTrue(loginPage.isUserLoggedIn())
         Assert.assertEquals(loginPage.meineKurse!!.text,(TestData.meineKurse))
 
-        var landingPage = LandingPage(driver!!)
+        var landingPage = LandingPage(driver)
         landingPage.navigateToCourse()
 
-        var courseViewPage = CourseViewPage(driver!!)
+        var courseViewPage = CourseViewPage(driver)
         courseViewPage.createNewAnnouncement(TestData.anncouncementSubject, TestData.announcementMessage)
 
         Assert.assertTrue(courseViewPage.verifyNewAnnouncement())
@@ -44,21 +41,21 @@ class ParallelTestExecution {
     @Test
     fun switchEditMode() {
         System.setProperty("webdriver.chrome.driver", TestData.pathToChromeDriver)
-        driver2 = ChromeDriver()
-        driver2!!.manage().deleteAllCookies()
-        driver2!!.get(TestData.url)
-        driver2!!.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)
-        driver2!!.manage().window().maximize()
+        var driver = ChromeDriver()
+        driver.manage().deleteAllCookies()
+        driver.get(TestData.url)
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)
+        driver.manage().window().maximize()
 
-        var loginPage = LoginPage(driver2!!)
+        var loginPage = LoginPage(driver)
         loginPage.login(TestData.username, TestData.password)
         Assert.assertTrue(loginPage.isUserLoggedIn())
         Assert.assertEquals(loginPage.meineKurse!!.text,(TestData.meineKurse))
 
-        var landingPage = LandingPage(driver2!!)
+        var landingPage = LandingPage(driver)
         landingPage.navigateToCourse()
 
-        var courseViewPage = CourseViewPage(driver2!!)
+        var courseViewPage = CourseViewPage(driver)
 
         Assert.assertTrue(courseViewPage.switchEditButton!!.isDisplayed)
         Assert.assertEquals(courseViewPage.switchEditButton!!.text, TestData.bearbeitenEinschalten)
@@ -72,18 +69,18 @@ class ParallelTestExecution {
     @Test
     fun changeSystemLanguage(){
         System.setProperty("webdriver.chrome.driver", TestData.pathToChromeDriver)
-        driver3 = ChromeDriver()
-        driver3!!.manage().deleteAllCookies()
-        driver3!!.get(TestData.url)
-        driver3!!.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)
-        driver3!!.manage().window().maximize()
+        var driver = ChromeDriver()
+        driver.manage().deleteAllCookies()
+        driver.get(TestData.url)
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS)
+        driver.manage().window().maximize()
 
-        var loginPage = LoginPage(driver3!!)
+        var loginPage = LoginPage(driver)
         loginPage.login(TestData.username, TestData.password)
         Assert.assertTrue(loginPage.isUserLoggedIn())
         Assert.assertEquals(loginPage.meineKurse!!.text,(TestData.meineKurse))
 
-        val landingPage = LandingPage(driver3!!)
+        val landingPage = LandingPage(driver)
         landingPage.navigateToCourse()
         landingPage.switchLanguage(TestData.languageEnglish)
         Assert.assertTrue(landingPage.verifyLanguage(TestData.languageEnglish))
